@@ -1,7 +1,7 @@
 # 2021_nodejs_part_study
 
->> 2021 신입 기수 Node.js Part Study 정리 레포입니다.<br>
->> 오류 및 부족한 점들은 이슈를 통해 알려주세요!
+> 2021 신입 기수 Node.js Part Study 정리 레포입니다.<br>
+> 오류 및 부족한 점들은 이슈를 통해 알려주세요!
 
 ## 스터디 소개
 - 파트장 : [27기 김건훈](https://github.com/DNATUNA)

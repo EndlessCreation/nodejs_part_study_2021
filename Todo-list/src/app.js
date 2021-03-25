@@ -27,7 +27,7 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true })); // qs의 기능 포함
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
+  res.header('Access-Control-Allow-Methods', 'GET, PATCH, POST, DELETE');
   res.header('Access-Control-Allow-Headers', 'content-type');
   next();
 });

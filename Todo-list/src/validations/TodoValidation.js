@@ -47,4 +47,19 @@ export class TodoValidation {
       res.send(err.mapped());
     }
   }
+
+  async updateIsCompletedRequest(req, res, next) {
+    try {
+      await check('id').bail().isNumeric().run(req);
+      await check('isCompleted').bail().isNumeric().run(req);
+      const error = validationResult(req);
+      if (!error.isEmpty()) {
+        error.throw();
+      }
+      next();
+    } catch (err) {
+      res.status(400);
+      res.send(err.mapped());
+    }
+  }
 }

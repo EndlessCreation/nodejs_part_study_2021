@@ -10,7 +10,7 @@ router.post('/', todoValidation.createTodoRequest, todoController.create);
 router.get('/', todoController.findAll);
 router.get('/:id', todoValidation.checkIdRequest, todoController.findById);
 router.patch('/:id', todoValidation.updateTodoRequest, todoController.update);
-router.patch('/:id/complete', todoValidation.checkIdRequest, todoController.updateisCompleted);
+router.patch('/:id/complete', todoValidation.updateIsCompletedRequest, todoController.updateisCompleted);
 router.delete('/:id', todoValidation.checkIdRequest, todoController.delete);
 
 export default router;

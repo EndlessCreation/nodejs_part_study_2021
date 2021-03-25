@@ -1,5 +1,6 @@
 import bodyparser from 'body-parser';
 import express from 'express';
+import morgan from 'morgan';
 import { errorHandler, logHandler } from './middlewares/errorHandler.js';
 import db from './models/index.js';
 import TestRouter from './router/TestRouter.js';
@@ -30,6 +31,7 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Headers', 'content-type');
   next();
 });
+app.use(morgan('dev'));
 app.use(logHandler);
 app.use(errorHandler);
 

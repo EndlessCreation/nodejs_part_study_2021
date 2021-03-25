@@ -7,3 +7,6 @@ node_modules/
 
 # Mac 파일
 .DS_Store
+
+# Sequelize Setting file
+**/*/*.json

@@ -1,5 +1,5 @@
 export const logHandler = (err, req, res, next) => {
-  console.error('[' + new Date() + ']\n' + err.message);
+  console.error('[' + new Date() + ']\n' + (err.msg || err.message));
   next(err);
 };
 export const errorHandler = (err, req, res, next) => {

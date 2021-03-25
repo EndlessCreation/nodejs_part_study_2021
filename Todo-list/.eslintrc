@@ -1,7 +1,10 @@
 {
     "root": true,
+    "env": {
+        "node": true
+    },
     "parserOptions": {
-        "ecmaVersion": 11,
+        "ecmaVersion": 12,
         "sourceType": "module",
         "allowImportExportEverywhere": true
     },
@@ -14,7 +17,6 @@
     // 추가한 플러그인에서 적용시킬 규칙을 설정함
     "extends": [
         "eslint:recommended",
-        "plugin:node/recommended",
         "prettier",
         "plugin:jest/recommended"
     ],
@@ -30,6 +32,7 @@
         "eol-last": "error",
         "prefer-arrow-callback": "error",
         "no-trailing-spaces": "error",
+        "no-console": "off",
         "quotes": [
             "warn",
             "single",

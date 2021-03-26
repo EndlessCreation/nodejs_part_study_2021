@@ -29,11 +29,16 @@ const GOOGLE = {
   CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
   REDIRECT_URL: process.env.GOOGLE_REDIRECT_URL,
 };
+const GITHUB = {
+  CLIENT_ID: process.env.GITHUB_CLIENT_ID,
+  CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
+};
 export default {
   NODE_ENV: NODE_ENV,
   HOST: env.HOST,
   PORT: Number(env.PORT),
   sequelizeConfig,
   GOOGLE,
+  GITHUB,
   PASSWORD_SECRET: env.PASSWORD_SECRET,
 };

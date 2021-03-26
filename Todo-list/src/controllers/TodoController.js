@@ -3,7 +3,7 @@ import db from '../models/index.js';
 export class TodoController {
   async findAll(req, res, next) {
     try {
-      const todoList = await db.Todo.findAll({ order: [['createdAt', 'ASC']] });
+      const todoList = await db.Todo.findAll({ where: { writer: req.user.id }, order: [['createdAt', 'ASC']] });
 
       res.send(todoList);
     } catch (err) {
@@ -14,7 +14,7 @@ export class TodoController {
 
   async findById(req, res, next) {
     try {
-      const todo = await db.Todo.findOne({ where: { id: req.params.id } });
+      const todo = await db.Todo.findOne({ where: { id: req.params.id, writer: req.user.id } });
 
       res.send(todo);
     } catch (err) {
@@ -24,9 +24,9 @@ export class TodoController {
   }
 
   async create(req, res, next) {
-    const { title, description, writer } = req.body;
+    const { title, description } = req.body;
     try {
-      const todo = await db.Todo.create({ title, description, writer });
+      const todo = await db.Todo.create({ title, description, writer: req.user.id });
 
       res.status(201).send(todo);
     } catch (err) {
@@ -46,11 +46,12 @@ export class TodoController {
         {
           where: {
             id: req.params.id,
+            writer: req.user.id,
           },
         }
       );
       if (isUpdated) {
-        const todo = await db.Todo.findOne({ where: { id: req.params.id } });
+        const todo = await db.Todo.findOne({ where: { id: req.params.id, writer: req.user.id } });
         res.send(todo);
       } else {
         res.json({ isDeleted: false });
@@ -70,11 +71,12 @@ export class TodoController {
         {
           where: {
             id: req.params.id,
+            writer: req.user.id,
           },
         }
       );
       if (isUpdated) {
-        const todo = await db.Todo.findOne({ where: { id: req.params.id } });
+        const todo = await db.Todo.findOne({ where: { id: req.params.id, writer: req.user.id } });
         res.send(todo);
       } else {
         res.json({ isDeleted: false });
@@ -86,7 +88,7 @@ export class TodoController {
   }
   async delete(req, res, next) {
     try {
-      const isDeleted = await db.Todo.destroy({ where: { id: req.params.id } });
+      const isDeleted = await db.Todo.destroy({ where: { id: req.params.id, writer: req.user.id } });
       if (isDeleted) {
         res.json({ isDeleted: true });
       } else {

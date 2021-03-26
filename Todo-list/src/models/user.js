@@ -1,29 +1,26 @@
 export default (sequelize, DataTypes) => {
   return sequelize.define(
-    'todo',
+    'user',
     {
       id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
       },
-      writer: {
-        type: DataTypes.INTEGER,
+      name: {
+        type: DataTypes.STRING,
         allowNULL: false,
-      },
-      description: {
-        type: DataTypes.STRING(300),
-        allowNULL: false,
-      },
-      isCompleted: {
-        type: DataTypes.BOOLEAN,
-        allowNULL: false,
-        defaultValue: false,
+        unique: false,
       },
       createdAt: {
         type: DataTypes.DATE,
         allowNULL: false,
         defaultValue: DataTypes.NOW,
+      },
+      provider: {
+        type: DataTypes.STRING(10),
+        allowNUUL: false,
+        unique: false,
       },
     },
     {

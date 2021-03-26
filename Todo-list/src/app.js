@@ -3,7 +3,7 @@ import express from 'express';
 import morgan from 'morgan';
 import { errorHandler, logHandler } from './middlewares/errorHandler.js';
 import db from './models/index.js';
-import TestRouter from './router/TestRouter.js';
+import OAtuhRouter from './router/OAuthRouter.js';
 import TodoRouter from './router/TodoRouter.js';
 
 const app = express();
@@ -36,7 +36,7 @@ app.use(logHandler);
 app.use(errorHandler);
 
 // router Settings
-app.use('/', TestRouter);
+app.use('/oauth', OAtuhRouter);
 app.use('/todos', TodoRouter);
 
 export default app;

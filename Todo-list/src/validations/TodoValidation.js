@@ -4,9 +4,7 @@ const { check, validationResult } = validator;
 export class TodoValidation {
   async createTodoRequest(req, res, next) {
     try {
-      await check('title').bail().isString().run(req);
       await check('description').bail().isString().run(req);
-      await check('writer').bail().isString().run(req);
       const error = validationResult(req);
       if (!error.isEmpty()) {
         error.throw();
@@ -21,7 +19,6 @@ export class TodoValidation {
   async updateTodoRequest(req, res, next) {
     try {
       await check('id').bail().isNumeric().run(req);
-      await check('title').bail().isString().run(req);
       await check('description').bail().isString().run(req);
       const error = validationResult(req);
       if (!error.isEmpty()) {

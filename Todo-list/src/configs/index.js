@@ -24,10 +24,16 @@ const sequelizeConfig = {
   port: env.MYSQL_PORT,
   operatorsAliases: env.SEQUELIZE_OPERATORS_BOOLEAN === 'true' ? 1 : 0,
 };
-
+const GOOGLE = {
+  CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
+  CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
+  REDIRECT_URL: process.env.GOOGLE_REDIRECT_URL,
+};
 export default {
   NODE_ENV: NODE_ENV,
   HOST: env.HOST,
   PORT: Number(env.PORT),
   sequelizeConfig,
+  GOOGLE,
+  PASSWORD_SECRET: env.PASSWORD_SECRET,
 };

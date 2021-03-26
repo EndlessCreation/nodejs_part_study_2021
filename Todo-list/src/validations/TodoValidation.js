@@ -51,7 +51,7 @@ export class TodoValidation {
   async updateIsCompletedRequest(req, res, next) {
     try {
       await check('id').bail().isNumeric().run(req);
-      await check('isCompleted').bail().isNumeric().run(req);
+      await check('isCompleted').bail().isBoolean().run(req);
       const error = validationResult(req);
       if (!error.isEmpty()) {
         error.throw();

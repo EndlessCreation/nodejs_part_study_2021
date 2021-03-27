@@ -10,7 +10,6 @@ const githubOAuthController = new GithubOAuthController();
 const guestController = new GuestController();
 
 router.post('/google', googleOAuthController.get);
-router.post('/github', githubOAuthController.get);
 router.get('/guest', guestController.get);
 router.get('/google/callback', googleOAuthController.callback);
 router.get('/github/callback', githubOAuthController.callback);

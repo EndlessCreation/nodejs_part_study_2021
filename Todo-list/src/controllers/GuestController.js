@@ -9,7 +9,7 @@ export class GuestController {
         where: { name: 'guest', provider: 'guest' },
       });
       const accessToken = authHelper.makeAccessToken(user.id);
-      res.json({ accessTokent: accessToken });
+      res.json({ accessToken: accessToken });
     } catch (err) {
       console.error(err);
       next(err);

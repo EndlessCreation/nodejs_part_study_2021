@@ -39,7 +39,7 @@ export class GithubOAuthController {
         where: { name, provider: 'github' },
       });
       const accessToken = authHelper.makeAccessToken(user[0].id);
-      res.json({ accessTokent: accessToken });
+      res.json({ accessToken: accessToken });
     } catch (err) {
       console.error(err);
       next(err);

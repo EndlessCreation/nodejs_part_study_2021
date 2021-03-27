@@ -7,9 +7,19 @@ const authHelper = new AuthHelper();
 export class GithubOAuthController {
   async get(req, res, next) {
     try {
-      const Github_OAuth_GET = `https://github.com/login/oauth/authorize?scope=read:user&client_id=${env.GITHUB.CLIENT_ID}`;
+      const Github_OAuth_User_GET = 'https://api.github.com/user';
 
-      res.redirect(Github_OAuth_GET);
+      const headers = {
+        Authorization: `token ${req.body.githubAccessToken}`,
+      };
+      console.log(headers);
+
+      const name = await (await axios.get(Github_OAuth_User_GET, { headers })).data.name;
+      const user = await db.User.findOrCreate({
+        where: { name, provider: 'github' },
+      });
+      const accessToken = authHelper.makeAccessToken(user[0].id);
+      res.json({ accessToken: accessToken });
     } catch (err) {
       console.error(err);
       next(err);

@@ -40,31 +40,4 @@ export class GoogleOAuthController {
       next(err);
     }
   }
-  async callback(req, res, next) {
-    try {
-      const { tokens } = await oauth2Client.getToken(req.query.code);
-      oauth2Client.setCredentials(tokens);
-      google.options({ auth: oauth2Client });
-
-      const people = google.people({
-        version: 'v1',
-        auth: oauth2Client,
-      });
-      const me = await people.people.get({
-        resourceName: 'people/me',
-        personFields: 'names',
-      });
-
-      const name = me.data.names.length ? me.data.names[0].displayName : 'Google User';
-      console.log(name);
-      const user = await db.User.findOrCreate({
-        where: { name, provider: 'google' },
-      });
-      const accessToken = authHelper.makeAccessToken(user[0].id);
-      res.json({ accessToken: accessToken });
-    } catch (err) {
-      console.error(err);
-      next(err);
-    }
-  }
 }

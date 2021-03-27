@@ -30,7 +30,13 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Methods', 'GET, PATCH, POST, DELETE');
   res.header(
     'Access-Control-Allow-Headers',
-    'Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization'
+    'Origin',
+    'Accept',
+    'X-Requested-With',
+    'Content-Type',
+    'Access-Control-Request-Method',
+    'Access-Control-Request-Headers',
+    'Authorization'
   );
   next();
 });

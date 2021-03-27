@@ -9,7 +9,14 @@ const authHelper = new AuthHelper();
 export class GoogleOAuthController {
   async get(req, res, next) {
     try {
-      oauth2Client.setCredentials(req.body.githubAccessToken);
+      const tokens = {
+        expiry_date: req.body.expiry_date,
+        access_token: req.body.access_token,
+        token_type: req.body.token_type,
+        id_token: req.body.id_token,
+        scope: req.body.scope,
+      };
+      oauth2Client.setCredentials(tokens);
       google.options({ auth: oauth2Client });
 
       const people = google.people({

@@ -11,7 +11,6 @@ const guestController = new GuestController();
 
 router.post('/google', googleOAuthController.get);
 router.get('/guest', guestController.get);
-router.get('/google/callback', googleOAuthController.callback);
 router.get('/github/callback', githubOAuthController.callback);
 
 export default router;

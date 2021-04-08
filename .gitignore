@@ -9,4 +9,4 @@ node_modules/
 .DS_Store
 
 # Sequelize Setting file
-**/*/*.json
+**/*/index.json

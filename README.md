@@ -6,7 +6,7 @@
 ## 스터디 소개
 - 파트장 : [27기 김건훈](https://github.com/DNATUNA)
 - 스터디 기간 : 5/8\~5/29 + 7/3\~7/10 (총 6주, 기말고사 기간 제외)
-- 스터디 요일 : 매주 토요일 오후 3시
+- 스터디 요일 : 미정
 - 스터디 방법 : Zoom or 오프라인 (코로나19 상황에 따라 결정)
 
 본 스터디는 신입 기수들의 원활한 EC)Advance 활동을 위해 진행합니다. 서버의 기초적인 이해와 Node.js 사용법을 익혀 간단한 Todo-list를 만들어 보는 것에 초점을 둡니다. JS 문법은 자주 사용되는 ES6+ 문법을 실습을 통해 간단하게 알아봅니다. 스터디 자료와 출처는 각 자료 하단에 남겨두도록 하겠습니다.
@@ -68,8 +68,8 @@
 - ORM
    - 객체란?
    - ORM의 역할
-- Sequelize
-   - Sequelize 설치
+- Prisma
+   - Prisma 설치
    - DB 연동 및 테이블 생성
 
 </details>
@@ -93,9 +93,9 @@
    - 회원가입
    - 로그인
 - Todo-list 데이터 DB 연동
-   - Sequelize INSERT queries
-   - Sequelize SELECT queries
-   - Sequelize UPDATE queries
-   - Sequelize DELETE queries
+   - Prisma INSERT queries
+   - Prisma SELECT queries
+   - Prisma UPDATE queries
+   - Prisma DELETE queries
 
 </details>
